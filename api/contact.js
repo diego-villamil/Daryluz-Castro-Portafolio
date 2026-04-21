@@ -1,10 +1,16 @@
+// /api/contact.js
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { name, email, subject, message, captchaToken } = req.body || {};
+    const body =
+      typeof req.body === 'string'
+        ? JSON.parse(req.body || '{}')
+        : (req.body || {});
+
+    const { name, email, subject, message, captchaToken } = body;
 
     if (!name || !email || !subject || !message) {
       return res.status(400).json({ error: 'Faltan campos obligatorios' });
@@ -19,7 +25,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Captcha requerido' });
     }
 
-    // Validación opcional de reCAPTCHA en servidor
     if (process.env.RECAPTCHA_SECRET_KEY) {
       const captchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: 'POST',
@@ -35,8 +40,26 @@ export default async function handler(req, res) {
       const captchaData = await captchaRes.json();
 
       if (!captchaData.success) {
-        return res.status(400).json({ error: 'reCAPTCHA inválido' });
+        return res.status(400).json({
+          error: 'reCAPTCHA inválido',
+          details: captchaData['error-codes'] || []
+        });
       }
+    }
+
+    const senderEmail = process.env.BREVO_SENDER_EMAIL;
+    const receiverEmail = process.env.BREVO_RECEIVER_EMAIL;
+    const brevoApiKey = process.env.BREVO_API_KEY;
+
+    if (!senderEmail || !receiverEmail || !brevoApiKey) {
+      return res.status(500).json({
+        error: 'Faltan variables de entorno del servidor',
+        details: {
+          hasSender: Boolean(senderEmail),
+          hasReceiver: Boolean(receiverEmail),
+          hasApiKey: Boolean(brevoApiKey)
+        }
+      });
     }
 
     const esc = (str) =>
@@ -45,14 +68,6 @@ export default async function handler(req, res) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
-
-    const senderEmail = process.env.BREVO_SENDER_EMAIL;
-    const receiverEmail = process.env.BREVO_RECEIVER_EMAIL;
-    const brevoApiKey = process.env.BREVO_API_KEY;
-
-    if (!senderEmail || !receiverEmail || !brevoApiKey) {
-      return res.status(500).json({ error: 'Faltan variables de entorno del servidor' });
-    }
 
     const sendEmail = async ({ to, subject, htmlContent, replyTo }) => {
       const payload = {
@@ -73,12 +88,17 @@ export default async function handler(req, res) {
         body: JSON.stringify(payload)
       });
 
+      const rawText = await brevoRes.text();
+
       if (!brevoRes.ok) {
-        const errText = await brevoRes.text();
-        throw new Error(`Brevo error: ${brevoRes.status} ${errText}`);
+        throw new Error(`Brevo ${brevoRes.status}: ${rawText}`);
       }
 
-      return brevoRes.json();
+      try {
+        return JSON.parse(rawText);
+      } catch {
+        return { ok: true, rawText };
+      }
     };
 
     await sendEmail({
@@ -117,7 +137,11 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true, message: 'Mensaje enviado correctamente' });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'No fue posible enviar el mensaje' });
+    console.error('API /api/contact error:', error);
+
+    return res.status(500).json({
+      error: 'No fue posible enviar el mensaje',
+      details: error instanceof Error ? error.message : String(error)
+    });
   }
 }

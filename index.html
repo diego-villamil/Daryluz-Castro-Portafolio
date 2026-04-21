@@ -396,13 +396,6 @@
 
     <!-- =============== JAVASCRIPT =============== -->
     <script>
-        // ─────────────────────────────────────────────────────────────
-        // CONFIGURACIÓN — solo cambia estos valores si es necesario
-        // ─────────────────────────────────────────────────────────────
-
-        const RECEIVER_EMAIL = 'Dariluzmc06@gmail.com';        // Donde llegan los mensajes
-        const SENDER_EMAIL = 'diegosanjuan9000@gmail.com';   // Email verificado en Brevo
-        const SENDER_NAME = 'Portafolio Dariluz Morillo';
 
         // ─────────────────────────────────────────────────────────────
         // LAZY LOADING IMAGES
@@ -424,179 +417,62 @@
         });
         document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
 
-        // ─────────────────────────────────────────────────────────────
-        // ENVÍO DE FORMULARIO — Brevo API + reCAPTCHA
-        // ─────────────────────────────────────────────────────────────
         async function handleFormSubmit(event) {
-            event.preventDefault();
+        event.preventDefault();
 
-            const form = event.target;
-            const submitBtn = form.querySelector('.form-submit');
+        const form = event.target;
+        const submitBtn = form.querySelector('.form-submit');
 
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const subject = form.subject.value.trim();
-            const message = form.message.value.trim();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
 
-            // Validación de campos
-            if (!name || !email || !subject || !message) {
-                showMessage('Por favor completa todos los campos.', 'error');
-                return;
-            }
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showMessage('Por favor ingresa un email válido.', 'error');
-                return;
-            }
-
-            // Validar reCAPTCHA
-            const captchaToken = grecaptcha.getResponse();
-            if (!captchaToken) {
-                showMessage('Por favor completa el reCAPTCHA antes de enviar.', 'error');
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-
-            try {
-                // Email 1 — notificación a Dariluz
-                await sendBrevoEmail({
-                    to: [{ email: RECEIVER_EMAIL, name: 'Dariluz Morillo' }],
-                    replyTo: { email, name },
-                    subject: `[Portafolio] Nuevo mensaje: ${subject}`,
-                    html: `
-                        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;
-                                    background:#f5f5f5;padding:20px;border-radius:10px;">
-                            <h2 style="color:#8b5fbf;border-bottom:2px solid #8b5fbf;padding-bottom:10px;">
-                                📬 Nuevo Mensaje desde tu Portafolio
-                            </h2>
-                            <div style="background:#fff;padding:20px;border-radius:8px;margin:20px 0;">
-                                <p><strong>Nombre:</strong> ${esc(name)}</p>
-                                <p><strong>Email:</strong>
-                                    <a href="mailto:${esc(email)}">${esc(email)}</a></p>
-                                <p><strong>Asunto:</strong> ${esc(subject)}</p>
-                            </div>
-                            <div style="background:#f9f9f9;padding:15px;border-left:4px solid #8b5fbf;
-                                        border-radius:4px;margin:20px 0;">
-                                <p><strong>Mensaje:</strong></p>
-                                <p style="color:#555;line-height:1.6;white-space:pre-wrap;">${esc(message)}</p>
-                            </div>
-                            <p style="color:#999;font-size:12px;text-align:center;">
-                                Responde directamente a este email para contactar al remitente.
-                            </p>
-                        </div>`
-                });
-
-                // Email 2 — confirmación al remitente
-                await sendBrevoEmail({
-                    to: [{ email, name }],
-                    subject: '✅ Hemos recibido tu mensaje — Dariluz Morillo',
-                    html: `
-                        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;
-                                    background:#f5f5f5;padding:20px;border-radius:10px;">
-                            <h2 style="color:#8b5fbf;text-align:center;">✅ Mensaje Recibido</h2>
-                            <div style="background:#fff;padding:30px;border-radius:8px;
-                                        margin:20px 0;text-align:center;">
-                                <p style="font-size:16px;color:#333;">
-                                    Hola <strong>${esc(name)}</strong>,</p>
-                                <p style="color:#666;line-height:1.8;">
-                                    Gracias por contactarme. He recibido tu mensaje y lo revisaré
-                                    con atención. Me pondré en contacto pronto.
-                                </p>
-                            </div>
-                            <div style="background:#f0f0ff;padding:20px;border-radius:8px;margin:20px 0;">
-                                <h3 style="color:#8b5fbf;margin-top:0;">Resumen de tu mensaje:</h3>
-                                <p><strong>Asunto:</strong> ${esc(subject)}</p>
-                                <div style="background:#fff;padding:15px;border-radius:4px;
-                                            border-left:4px solid #8b5fbf;">
-                                    <p style="white-space:pre-wrap;color:#555;margin:0;">
-                                        ${esc(message).substring(0, 300)}${message.length > 300 ? '…' : ''}
-                                    </p>
-                                </div>
-                            </div>
-                            <p style="color:#999;font-size:11px;text-align:center;margin-top:30px;">
-                                Este es un email automático, por favor no respondas a este mensaje.
-                            </p>
-                        </div>`
-                });
-
-                showMessage('✅ ¡Mensaje enviado! Me pondré en contacto pronto.', 'success');
-                form.reset();
-                grecaptcha.reset();
-
-            } catch (err) {
-                console.error('Error Brevo:', err);
-                showMessage('❌ Error al enviar. Intenta de nuevo o escríbeme por WhatsApp.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enviar Mensaje';
-            }
+        if (!name || !email || !subject || !message) {
+            showMessage('Por favor completa todos los campos.', 'error');
+            return;
         }
 
-        // Llama a la API transaccional de Brevo (compatible con GitHub Pages, sin backend)
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const form = event.target;
-            const submitBtn = form.querySelector('.form-submit');
-
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const subject = form.subject.value.trim();
-            const message = form.message.value.trim();
-
-            if (!name || !email || !subject || !message) {
-                showMessage('Por favor completa todos los campos.', 'error');
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showMessage('Por favor ingresa un email válido.', 'error');
-                return;
-            }
-
-            const captchaToken = grecaptcha.getResponse();
-            if (!captchaToken) {
-                showMessage('Por favor completa el reCAPTCHA antes de enviar.', 'error');
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-
-            try {
-                const res = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        subject,
-                        message,
-                        captchaToken
-                    })
-                });
-
-                const data = await res.json();
-
-                if (!res.ok) {
-                    throw new Error(data.error || 'Error al enviar');
-                }
-
-                showMessage('Mensaje enviado correctamente.', 'success');
-                form.reset();
-                grecaptcha.reset();
-            } catch (err) {
-                console.error(err);
-                showMessage('Error al enviar. Intenta de nuevo.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enviar Mensaje';
-            }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showMessage('Por favor ingresa un email válido.', 'error');
+            return;
         }
-        
+
+        const captchaToken = grecaptcha.getResponse();
+        if (!captchaToken) {
+            showMessage('Por favor completa el reCAPTCHA antes de enviar.', 'error');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+            const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message, captchaToken })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+            console.error('API error:', data);
+            throw new Error(data.details || data.error || 'Error al enviar');
+            }
+
+            showMessage('Mensaje enviado correctamente.', 'success');
+            form.reset();
+            grecaptcha.reset();
+        } catch (err) {
+            console.error('Frontend error:', err);
+            showMessage(err.message || 'Error al enviar. Intenta de nuevo.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Mensaje';
+        }
+        }
         // Escapa HTML para evitar XSS en los emails
         function esc(str) {
             return String(str)
