@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1776800347647,
@@ -16,6 +16,10 @@
                 {
                     "date": 1776800883738,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,13 @@\n         gap: 0.5rem;\r\n         align-items: flex-start;\r\n     }\r\n \r\n+    .logo img {\r\n+        width: 80px;\r\n+        height: 80px;\r\n+    }\r\n+\r\n     .logo .title-site { display: none; }\r\n \r\n \r\n     .nav-links {\r\n"
+                },
+                {
+                    "date": 1776801211007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,9 +93,8 @@\n     }\r\n \r\n     .skill-card strong { font-size: 0.95rem; }\r\n     .skill-card p      { font-size: 0.8rem; }\r\n-    .icon-skill        { width: 48px; height: 48px; }\r\n \r\n     /* ── Experience / Timeline ── */\r\n     .experience {\r\n         padding: var(--spacing-xl) var(--spacing-sm);\r\n"
                 }
             ],
             "date": 1776800347647,
