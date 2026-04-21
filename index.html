@@ -24,6 +24,11 @@
                 <img src="image/DMC.svg" alt="Logo tipo de Daryluz" style="filter: invert(1);">
                 <h1 class="title-site">Daryluz</h1>
             </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#about">Acerca de</a></li>
                 <li><a href="#experience">Experiencia</a></li>
@@ -721,40 +726,23 @@
             });
         });
 
-        // ─────────────────────────────────────────────────────────────
-        // SCROLL ANIMATIONS
-        // ─────────────────────────────────────────────────────────────
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
-                    scrollObserver.unobserve(entry.target);
-                }
+
+
+        // ── Menú hamburguesa ──
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Cierra el menú al hacer clic en un link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));
-
-        const swiper = new Swiper('.skills-carousel', {
-            loop: true,
-            spaceBetween: 16,
-            slidesPerView: 1.5,
-            breakpoints: {
-                768: {
-                    slidesPerView: 3
-                },
-                1024: {
-                    slidesPerView: 5
-                }
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false
-            }
         });
     </script>
 </body>

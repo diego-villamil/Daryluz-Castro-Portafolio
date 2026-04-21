@@ -1,4 +1,3 @@
-
 /* ================================================================
    RESPONSIVE — MOBILE  (≤ 768px)
    ================================================================ */
@@ -12,41 +11,66 @@
     }
 
     /* ── Navbar ── */
+    /* ── Navbar ── */
     .navbar {
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding: 0.75rem var(--spacing-sm);
     }
 
     .nav-container {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
+        flex-direction: row;
+        /* logo y hamburguesa en la misma fila */
+        justify-content: space-between;
+        align-items: center;
     }
+
+    .nav-toggle {
+        display: flex;
+        /* visible en mobile */
+    }
+
+    .nav-links {
+        display: none;
+        /* oculto por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 15, 46, 0.97);
+        backdrop-filter: blur(15px);
+        padding: var(--spacing-md) var(--spacing-sm);
+        gap: var(--spacing-sm);
+        border-bottom: 1px solid rgba(139, 95, 191, 0.3);
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex;
+        /* visible cuando está abierto */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(139, 95, 191, 0.1);
+    }
+
 
     .logo img {
         width: 80px;
         height: 80px;
     }
 
-    .logo .title-site { display: none; }
-
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 1rem;
-        width: 100%;
-        padding-bottom: 0.25rem;
+    .logo .title-site {
+        display: none;
     }
 
-    .nav-links a {
-        font-size: 0.75rem;
-        letter-spacing: 0;
-    }
 
     /* ── Hero ── */
     .hero {
         padding: var(--spacing-sm);
-        padding-top: 160px;   /* espacio para navbar de dos líneas */
+        padding-top: 160px;
+        /* espacio para navbar de dos líneas */
     }
 
     /* ── About ── */
@@ -57,13 +81,19 @@
     }
 
     .about-content {
-        grid-template-columns: 1fr;   /* una sola columna */
+        grid-template-columns: 1fr;
+        /* una sola columna */
         gap: var(--spacing-lg);
     }
 
     /* Imagen va debajo del texto */
-    .about-image { order: 2; }
-    .about-text  { order: 1; }
+    .about-image {
+        order: 2;
+    }
+
+    .about-text {
+        order: 1;
+    }
 
     .about-content .about-image img {
         max-width: 260px;
@@ -72,7 +102,9 @@
         border-radius: 12px;
     }
 
-    .about-block-text p { font-size: 0.95rem; }
+    .about-block-text p {
+        font-size: 0.95rem;
+    }
 
     /* ── Carrusel de Skills ── */
     .skills-carousel-continuous {
@@ -81,7 +113,8 @@
 
     .skills-track {
         gap: var(--spacing-sm);
-        animation-duration: 28s;     /* un poco más rápido en mobile */
+        animation-duration: 28s;
+        /* un poco más rápido en mobile */
     }
 
     /* ~1.8 cards visibles en mobile */
@@ -92,8 +125,13 @@
         padding: var(--spacing-sm);
     }
 
-    .skill-card strong { font-size: 0.95rem; }
-    .skill-card p      { font-size: 0.8rem; }
+    .skill-card strong {
+        font-size: 0.95rem;
+    }
+
+    .skill-card p {
+        font-size: 0.8rem;
+    }
 
     /* ── Experience / Timeline ── */
     .experience {
@@ -125,11 +163,18 @@
         border-radius: 8px;
     }
 
-    .timeline-content h3 { font-size: 1.05rem; }
-    .timeline-content p  { font-size: 0.9rem; }
+    .timeline-content h3 {
+        font-size: 1.05rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
 
     /* ── Portfolio ── */
-    .portfolio { padding: var(--spacing-xl) var(--spacing-sm); }
+    .portfolio {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
 
     .portfolio-grid {
         grid-template-columns: 1fr 1fr;
@@ -137,7 +182,9 @@
     }
 
     /* ── Services ── */
-    .services { padding: var(--spacing-xl) var(--spacing-sm); }
+    .services {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
 
     .services-grid {
         grid-template-columns: 1fr;
@@ -145,13 +192,17 @@
     }
 
     /* ── Contact ── */
-    .contact { padding: var(--spacing-xl) var(--spacing-sm); }
+    .contact {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
 
     /* ── Floating WhatsApp ── */
     .floating-buttons {
         bottom: var(--spacing-md);
         right: var(--spacing-md);
     }
+
+
 }
 
 
@@ -161,7 +212,8 @@
 @media (max-width: 480px) {
 
     .portfolio-grid {
-        grid-template-columns: 1fr;   /* una sola columna en pantallas muy pequeñas */
+        grid-template-columns: 1fr;
+        /* una sola columna en pantallas muy pequeñas */
     }
 
     .cta-buttons {
@@ -170,9 +222,12 @@
         gap: var(--spacing-sm);
     }
 
-    .btn { width: 100%; text-align: center; }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 
-    .nav-links a { font-size: 0.7rem; }
+    .nav-links a {
+        font-size: 0.7rem;
+    }
 }
-
-

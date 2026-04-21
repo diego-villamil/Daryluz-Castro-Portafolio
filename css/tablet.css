@@ -22,7 +22,38 @@
     }
 
     /* Timeline: reducir padding lateral */
-    .timeline-item:nth-child(odd)  { padding-right: calc(50% + var(--spacing-md)); }
-    .timeline-item:nth-child(even) { padding-left:  calc(50% + var(--spacing-md)); }
-}
+    .timeline-item:nth-child(odd) {
+        padding-right: calc(50% + var(--spacing-md));
+    }
 
+    .timeline-item:nth-child(even) {
+        padding-left: calc(50% + var(--spacing-md));
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 15, 46, 0.97);
+        backdrop-filter: blur(15px);
+        padding: var(--spacing-md) var(--spacing-lg);
+        gap: var(--spacing-sm);
+        border-bottom: 1px solid rgba(139, 95, 191, 0.3);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+    }
+}

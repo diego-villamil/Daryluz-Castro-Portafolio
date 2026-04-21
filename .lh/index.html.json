@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 30,
+            "activePatchIndex": 37,
             "patches": [
                 {
                     "date": 1776743237187,
@@ -128,6 +128,34 @@
                 {
                     "date": 1776800373976,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,10 @@\n     <title>Daryluz Morillo Castro - Ingeniera Multimedia | Diseño Gráfico & Desarrollo</title>\r\n     <meta name=\"description\"\r\n         content=\"Portafolio profesional de Daryluz Morillo Castro - Ingeniera Multimedia, Diseñadora Gráfica y Desarrolladora Creativa. Diseño, animación y desarrollo web.\">\r\n     <link rel=\"stylesheet\" href=\"css/index.css\">\r\n+    <link rel=\"stylesheet\" href=\"css/mobile.css\">\r\n+    <link rel=\"stylesheet\" href=\"css/tablet.css\">\r\n     <!-- Swiper CSS -->\r\n     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css\">\r\n     <!-- reCAPTCHA -->\r\n     <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\r\n"
+                },
+                {
+                    "date": 1776807938326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,13 @@\n             <a href=\"#\" class=\"logo\">\r\n                 <img src=\"image/DMC.svg\" alt=\"Logo tipo de Daryluz\" style=\"filter: invert(1);\">\r\n                 <h1 class=\"title-site\">Daryluz</h1>\r\n             </a>\r\n+            <button class=\"nav-toggle\" id=\"navToggle\" aria-label=\"Abrir menú\">\r\n+                <span></span>\r\n+                <span></span>\r\n+                <span></span>\r\n+            </button>\r\n             <ul class=\"nav-links\">\r\n                 <li><a href=\"#about\">Acerca de</a></li>\r\n                 <li><a href=\"#experience\">Experiencia</a></li>\r\n                 <li><a href=\"#portfolio\">Portafolio</a></li>\r\n"
+                },
+                {
+                    "date": 1776808111276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -760,8 +760,25 @@\n                 delay: 2500,\r\n                 disableOnInteraction: false\r\n             }\r\n         });\r\n+\r\n+        // ── Menú hamburguesa ──\r\n+        const navToggle = document.getElementById('navToggle');\r\n+        const navLinks = document.querySelector('.nav-links');\r\n+\r\n+        navToggle.addEventListener('click', () => {\r\n+            navToggle.classList.toggle('active');\r\n+            navLinks.classList.toggle('open');\r\n+        });\r\n+\r\n+        // Cierra el menú al hacer clic en un link\r\n+        navLinks.querySelectorAll('a').forEach(link => {\r\n+            link.addEventListener('click', () => {\r\n+                navToggle.classList.remove('active');\r\n+                navLinks.classList.remove('open');\r\n+            });\r\n+        });\r\n     </script>\r\n </body>\r\n \r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1776808324195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -739,30 +739,10 @@\n         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });\r\n \r\n         document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));\r\n \r\n-        const swiper = new Swiper('.skills-carousel', {\r\n-            loop: true,\r\n-            spaceBetween: 16,\r\n-            slidesPerView: 1.5,\r\n-            breakpoints: {\r\n-                768: {\r\n-                    slidesPerView: 3\r\n-                },\r\n-                1024: {\r\n-                    slidesPerView: 5\r\n-                }\r\n-            },\r\n-            pagination: {\r\n-                el: '.swiper-pagination',\r\n-                clickable: true\r\n-            },\r\n-            autoplay: {\r\n-                delay: 2500,\r\n-                disableOnInteraction: false\r\n-            }\r\n-        });\r\n \r\n+\r\n         // ── Menú hamburguesa ──\r\n         const navToggle = document.getElementById('navToggle');\r\n         const navLinks = document.querySelector('.nav-links');\r\n \r\n"
+                },
+                {
+                    "date": 1776808363213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -735,9 +735,9 @@\n                     entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';\r\n                     scrollObserver.unobserve(entry.target);\r\n                 }\r\n             });\r\n-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });\r\n+        }, { threshold: 0.1, rootMargin: '0px 0px -250px 0px' });\r\n \r\n         document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1776808410584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -725,21 +725,9 @@\n                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });\r\n             });\r\n         });\r\n \r\n-        // ─────────────────────────────────────────────────────────────\r\n-        // SCROLL ANIMATIONS\r\n-        // ─────────────────────────────────────────────────────────────\r\n-        const scrollObserver = new IntersectionObserver((entries) => {\r\n-            entries.forEach(entry => {\r\n-                if (entry.isIntersecting) {\r\n-                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';\r\n-                    scrollObserver.unobserve(entry.target);\r\n-                }\r\n-            });\r\n-        }, { threshold: 0.1, rootMargin: '0px 0px -250px 0px' });\r\n \r\n-        document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));\r\n \r\n \r\n \r\n         // ── Menú hamburguesa ──\r\n"
+                },
+                {
+                    "date": 1776808422634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -725,9 +725,21 @@\n                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });\r\n             });\r\n         });\r\n \r\n+        // ─────────────────────────────────────────────────────────────\r\n+        // SCROLL ANIMATIONS\r\n+        // ─────────────────────────────────────────────────────────────\r\n+        const scrollObserver = new IntersectionObserver((entries) => {\r\n+            entries.forEach(entry => {\r\n+                if (entry.isIntersecting) {\r\n+                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';\r\n+                    scrollObserver.unobserve(entry.target);\r\n+                }\r\n+            });\r\n+        }, { threshold: 0.1, rootMargin: '0px 0px -250px 0px' });\r\n \r\n+        document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));\r\n \r\n \r\n \r\n         // ── Menú hamburguesa ──\r\n"
+                },
+                {
+                    "date": 1776808430315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -725,24 +725,10 @@\n                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });\r\n             });\r\n         });\r\n \r\n-        // ─────────────────────────────────────────────────────────────\r\n-        // SCROLL ANIMATIONS\r\n-        // ─────────────────────────────────────────────────────────────\r\n-        const scrollObserver = new IntersectionObserver((entries) => {\r\n-            entries.forEach(entry => {\r\n-                if (entry.isIntersecting) {\r\n-                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';\r\n-                    scrollObserver.unobserve(entry.target);\r\n-                }\r\n-            });\r\n-        }, { threshold: 0.1, rootMargin: '0px 0px -250px 0px' });\r\n \r\n-        document.querySelectorAll('.service-card').forEach(el => scrollObserver.observe(el));\r\n \r\n-\r\n-\r\n         // ── Menú hamburguesa ──\r\n         const navToggle = document.getElementById('navToggle');\r\n         const navLinks = document.querySelector('.nav-links');\r\n \r\n"
                 }
             ],
             "date": 1776743237187,
