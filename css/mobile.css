@@ -1,0 +1,175 @@
+
+/* ================================================================
+   RESPONSIVE — MOBILE  (≤ 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+
+    /* ── Variables ajustadas para mobile ── */
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2.5rem;
+        --spacing-md: 1.25rem;
+    }
+
+    /* ── Navbar ── */
+    .navbar {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .logo .title-site { font-size: 1.4rem; }
+
+    .logo img { width: 32px; height: 32px; }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        width: 100%;
+        padding-bottom: 0.25rem;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+        letter-spacing: 0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        padding: var(--spacing-sm);
+        padding-top: 160px;   /* espacio para navbar de dos líneas */
+    }
+
+    /* ── About ── */
+    .about {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-lg) var(--spacing-sm);
+        border-radius: 12px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;   /* una sola columna */
+        gap: var(--spacing-lg);
+    }
+
+    /* Imagen va debajo del texto */
+    .about-image { order: 2; }
+    .about-text  { order: 1; }
+
+    .about-content .about-image img {
+        max-width: 260px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 12px;
+    }
+
+    .about-block-text p { font-size: 0.95rem; }
+
+    /* ── Carrusel de Skills ── */
+    .skills-carousel-continuous {
+        margin-top: var(--spacing-md);
+    }
+
+    .skills-track {
+        gap: var(--spacing-sm);
+        animation-duration: 28s;     /* un poco más rápido en mobile */
+    }
+
+    /* ~1.8 cards visibles en mobile */
+    .skills-carousel-continuous .skill-card {
+        flex: 0 0 160px;
+        min-width: 160px;
+        max-width: 160px;
+        padding: var(--spacing-sm);
+    }
+
+    .skill-card strong { font-size: 0.95rem; }
+    .skill-card p      { font-size: 0.8rem; }
+    .icon-skill        { width: 48px; height: 48px; }
+
+    /* ── Experience / Timeline ── */
+    .experience {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    /* En mobile la línea va a la izquierda, todo fluye en una columna */
+    .timeline::before {
+        left: 12px;
+        transform: none;
+    }
+
+    .timeline-item {
+        padding-left: 40px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .timeline-dot {
+        left: 3px;
+        transform: none;
+        width: 18px;
+        height: 18px;
+    }
+
+    .timeline-content {
+        padding: var(--spacing-sm);
+        border-radius: 8px;
+    }
+
+    .timeline-content h3 { font-size: 1.05rem; }
+    .timeline-content p  { font-size: 0.9rem; }
+
+    /* ── Portfolio ── */
+    .portfolio { padding: var(--spacing-xl) var(--spacing-sm); }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    /* ── Services ── */
+    .services { padding: var(--spacing-xl) var(--spacing-sm); }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* ── Contact ── */
+    .contact { padding: var(--spacing-xl) var(--spacing-sm); }
+
+    /* ── Floating WhatsApp ── */
+    .floating-buttons {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+}
+
+
+/* ================================================================
+   RESPONSIVE — MOBILE PEQUEÑO  (≤ 480px)
+   ================================================================ */
+@media (max-width: 480px) {
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;   /* una sola columna en pantallas muy pequeñas */
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .btn { width: 100%; text-align: center; }
+
+    .nav-links a { font-size: 0.7rem; }
+}
+
+

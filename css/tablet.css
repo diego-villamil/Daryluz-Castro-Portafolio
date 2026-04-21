@@ -1,0 +1,28 @@
+/* ================================================================
+   RESPONSIVE — TABLET  (≤ 1024px)
+   ================================================================ */
+@media (max-width: 1024px) {
+
+    /* Navbar: reducir gap entre links */
+    .nav-links {
+        gap: var(--spacing-md);
+    }
+
+    /* About: mantener dos columnas pero ajustar proporción */
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    /* Carrusel: 3 cards visibles */
+    .skills-carousel-continuous .skill-card {
+        flex: 0 0 calc((100vw - (var(--spacing-md) * 2) - var(--spacing-lg) * 2) / 3);
+        min-width: 160px;
+        max-width: 200px;
+    }
+
+    /* Timeline: reducir padding lateral */
+    .timeline-item:nth-child(odd)  { padding-right: calc(50% + var(--spacing-md)); }
+    .timeline-item:nth-child(even) { padding-left:  calc(50% + var(--spacing-md)); }
+}
+

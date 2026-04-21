@@ -6,7 +6,6 @@
 }
 
 :root {
-    /* Colores personalizados - Inspirados en la marca de Dariluz */
     --primary: #8b5fbf;
     --primary-dark: #6f42c1;
     --secondary: #d6b3ff;
@@ -18,18 +17,15 @@
     --background: linear-gradient(135deg, #1a0f2e 0%, #2a1e3e 50%, #1f1a3f 100%);
     --success: #2ecc71;
 
-    /* Typography */
     --font-display: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
 
-    /* Animation */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -60,15 +56,8 @@ body {
 }
 
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .nav-container {
@@ -78,12 +67,14 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
     text-decoration: none;
 }
+
 .logo .title-site {
     font-size: 1.8rem;
     font-weight: 700;
@@ -124,13 +115,8 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--secondary);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
+.nav-links a:hover { color: var(--secondary); }
+.nav-links a:hover::after { width: 100%; }
 
 /* =============== HERO SECTION =============== */
 .hero {
@@ -171,15 +157,8 @@ body {
 }
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(30px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(30px); }
 }
 
 .hero-content {
@@ -191,15 +170,8 @@ body {
 }
 
 @keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
@@ -272,7 +244,6 @@ h1 {
 /* =============== ABOUT SECTION =============== */
 .about {
     padding: var(--spacing-xl) var(--spacing-lg);
-    margin: 0 auto;
     background: rgba(42, 30, 62, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -285,7 +256,6 @@ h1 {
     font-weight: 700;
     margin-bottom: var(--spacing-lg);
     text-align: center;
-    color: var(--text-primary);
     background: linear-gradient(135deg, var(--secondary) 0%, var(--accent-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -314,6 +284,7 @@ h1 {
     line-height: 1.8;
     font-size: 1.05rem;
 }
+
 /* =============== SKILLS CAROUSEL (SWIPER) =============== */
 .skills-carousel {
     margin-top: var(--spacing-lg);
@@ -382,7 +353,6 @@ h1 {
     margin: 0;
 }
 
-/* Personalización del Swiper */
 .swiper-pagination {
     margin-top: var(--spacing-lg) !important;
 }
@@ -453,15 +423,8 @@ h1 {
     border: 1px solid rgba(139, 95, 191, 0.3);
 }
 
-.timeline-content h3 {
-    color: var(--secondary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.timeline-content p {
-    color: var(--text-secondary);
-    margin: 0;
-}
+.timeline-content h3 { color: var(--secondary); margin-bottom: var(--spacing-xs); }
+.timeline-content p  { color: var(--text-secondary); margin: 0; }
 
 /* =============== PORTFOLIO SECTION =============== */
 .portfolio {
@@ -505,9 +468,7 @@ h1 {
     transition: opacity 0.6s ease;
 }
 
-.portfolio-card img.loaded {
-    opacity: 1;
-}
+.portfolio-card img.loaded { opacity: 1; }
 
 .portfolio-card-overlay {
     position: absolute;
@@ -524,19 +485,9 @@ h1 {
     text-align: center;
 }
 
-.portfolio-card:hover .portfolio-card-overlay {
-    opacity: 1;
-}
-
-.portfolio-card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.portfolio-card-description {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
-}
+.portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
+.portfolio-card-title { font-size: 1.5rem; font-weight: 700; }
+.portfolio-card-description { font-size: 0.95rem; color: rgba(255, 255, 255, 0.9); }
 
 /* =============== SERVICES SECTION =============== */
 .services {
@@ -568,10 +519,7 @@ h1 {
     box-shadow: 0 20px 40px rgba(139, 95, 191, 0.25);
 }
 
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
-}
+.service-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
 
 .service-card h3 {
     font-size: 1.3rem;
@@ -579,10 +527,7 @@ h1 {
     color: var(--secondary);
 }
 
-.service-card p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
+.service-card p { color: var(--text-secondary); line-height: 1.7; }
 
 /* =============== CONTACT FORM =============== */
 .contact {
@@ -591,14 +536,9 @@ h1 {
     border-top: 2px solid rgba(139, 95, 191, 0.3);
 }
 
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
+.contact-container { max-width: 600px; margin: 0 auto; }
 
-.form-group {
-    margin-bottom: var(--spacing-lg);
-}
+.form-group { margin-bottom: var(--spacing-lg); }
 
 .form-group label {
     display: block;
@@ -622,9 +562,7 @@ h1 {
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
+.form-group textarea::placeholder { color: rgba(255, 255, 255, 0.4); }
 
 .form-group input:focus,
 .form-group textarea:focus {
@@ -634,10 +572,7 @@ h1 {
     box-shadow: 0 0 0 3px rgba(214, 179, 255, 0.1);
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
+.form-group textarea { resize: vertical; min-height: 120px; }
 
 .form-submit {
     width: 100%;
@@ -660,10 +595,7 @@ h1 {
     box-shadow: 0 15px 40px rgba(214, 179, 255, 0.5);
 }
 
-.form-submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .form-message {
     margin-top: var(--spacing-md);
@@ -746,15 +678,8 @@ h1 {
 }
 
 @keyframes bounceIn {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
 .whatsapp-btn {
@@ -766,8 +691,6 @@ h1 {
     transform: scale(1.1) rotate(10deg);
     box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
 }
-
-/* =============== SKILLS CAROUSEL CONTINUO (MOVIMIENTO FLUIDO INFINITO) =============== */
 
 /* =============== SKILLS CAROUSEL CONTINUO =============== */
 .skills-carousel-continuous {
@@ -791,40 +714,23 @@ h1 {
     animation-play-state: paused;
 }
 
-/* Desktop: 5 visibles */
 .skills-carousel-continuous .skill-card {
     flex: 0 0 220px;
     min-width: 220px;
     max-width: 220px;
 }
 
-/* Tablet: 3 visibles */
-@media (max-width: 1024px) {
-    .skills-carousel-continuous .skill-card {
-        flex: 0 0 calc((100vw - (var(--spacing-md) * 2)) / 3);
-        max-width: calc((100vw - (var(--spacing-md) * 2)) / 3);
-        min-width: calc((100vw - (var(--spacing-md) * 2)) / 3);
-    }
-}
-
-/* Mobile: 1.5 visibles */
-@media (max-width: 768px) {
-    .skills-track {
-        gap: var(--spacing-sm);
-    }
-
-    .skills-carousel-continuous .skill-card {
-        flex: 0 0 calc((100vw - var(--spacing-sm)) / 1.5);
-        max-width: calc((100vw - var(--spacing-sm)) / 1.5);
-        min-width: calc((100vw - var(--spacing-sm)) / 1.5);
-    }
-}
-
 @keyframes scrollContinuous {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
+
+/* =============== FOOTER =============== */
+.footer {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(139, 95, 191, 0.2);
+    font-size: 0.9rem;
+}
+
