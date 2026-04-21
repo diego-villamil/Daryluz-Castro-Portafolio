@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dariluz Morillo - Ingeniera Multimedia | Diseño Gráfico & Desarrollo</title>
+    <meta name="description"
+        content="Portafolio profesional de Dariluz Morillo - Ingeniera Multimedia, Diseñadora Gráfica y Desarrolladora Creativa. Diseño, animación y desarrollo web.">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">✨ Dariluz</a>
+            <ul class="nav-links">
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dariluz Morillo</h1>
+            <p class="subtitle">Ingeniera Multimedia | Diseñadora Gráfica | Creativa Digital</p>
+            <p class="subtitle" style="font-size: 1rem; margin-bottom: var(--spacing-xl);">Transformo ideas en
+                experiencias visuales impactantes con diseño, animación y desarrollo multimedia.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary"
+                    onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">
+                    Ver Portafolio
+                </button>
+                <a href="cv.pdf" download class="btn btn-secondary">
+                    Descargar CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Soy Dariluz Morillo, Técnico Laboral con un perfil híbrido que combina la precisión en la
+                    gestión de datos con la creatividad visual. Cursando Ingeniería Multimedia y apasionada por
+                    crear soluciones que fusionan tecnología, arte y eficiencia operativa.</p>
+                <p>Cuento con experiencia sólida en entrada de datos codificados, administración de sistemas
+                    informáticos y gestión de materiales para optimizar procesos de documentación. Complemento mi
+                    formación con dominio avanzado en Adobe Photoshop, Illustrator y Animate para la creación de
+                    contenido de alto impacto.</p>
+                <p>Actualmente expandiendo mis capacidades hacia el diseño 3D con Blender y la postproducción
+                    profesional en DaVinci Resolve y CapCut. Mi enfoque: eficiencia operativa y contenido visual
+                    que marca la diferencia.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <strong>Photoshop</strong>
+                        <p>Edición Avanzada</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>Illustrator</strong>
+                        <p>Diseño Vectorial</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>Animate</strong>
+                        <p>Animación Digital</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>Blender</strong>
+                        <p>Diseño 3D</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>DaVinci Resolve</strong>
+                        <p>Postproducción</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>After Effects</strong>
+                        <p>Motion Graphics</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>CapCut</strong>
+                        <p>Edición de Video</p>
+                    </div>
+                    <div class="skill-card">
+                        <strong>Gestión de Datos</strong>
+                        <p>Administración de Sistemas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img data-src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop"
+                    alt="Dariluz Morillo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <h2 class="section-title">Experiencia Laboral</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>GSS Endesa</h3>
+                    <p><strong>Agente BPO</strong> - 2022</p>
+                    <p>Atención al cliente y soporte técnico en plataforma de energía.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Autolitoral Chevrolet</h3>
+                    <p><strong>Aprendiz Contable</strong> - 2021 a 2022</p>
+                    <p>Apoyo en gestión contable y administrativa, manejo de bases de datos y
+                        administración de sistemas informáticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <h2 class="section-title">Mi Portafolio</h2>
+            <div class="portfolio-grid">
+
+                <!-- Tarjeta 1: Diseño Gráfico -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop"
+                            alt="Proyecto de Diseño Gráfico">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Diseño Gráfico</h3>
+                            <p class="portfolio-card-description">Logos, identidad visual y materiales de
+                                marketing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Edición de Video -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1605379399243-a0be3d3ff2f7?w=400&h=400&fit=crop"
+                            alt="Edición de Video">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Edición de Video</h3>
+                            <p class="portfolio-card-description">Producción en DaVinci Resolve, Premiere y
+                                CapCut</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Animación -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
+                            alt="Animación">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Animación</h3>
+                            <p class="portfolio-card-description">Motion graphics con After Effects y Adobe
+                                Animate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Diseño 3D — reemplaza fotografía -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=400&fit=crop"
+                            alt="Diseño 3D con Blender">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Diseño 3D</h3>
+                            <p class="portfolio-card-description">Modelado, texturizado y renders en Blender
+                                para proyectos multimedia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Branding -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop"
+                            alt="Branding">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Branding</h3>
+                            <p class="portfolio-card-description">Identidad visual integral para empresas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Multimedia -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-image">
+                        <img data-src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop"
+                            alt="Desarrollo Multimedia">
+                        <div class="portfolio-card-overlay">
+                            <h3 class="portfolio-card-title">Multimedia</h3>
+                            <p class="portfolio-card-description">Contenido interactivo y experiencias
+                                digitales</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Mis Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Diseño Gráfico</h3>
+                <p>Logos, branding, diseño editorial y materiales de marketing creativos y profesionales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Edición de Video</h3>
+                <p>Producción, edición y postproducción en DaVinci Resolve, Premiere y CapCut.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Animación</h3>
+                <p>Motion graphics y animaciones vectoriales con After Effects y Adobe Animate.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧊</div>
+                <h3>Diseño 3D</h3>
+                <p>Modelado, texturizado y renders en Blender para visualización 3D y proyectos
+                    multimedia.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🗄️</div>
+                <h3>Gestión de Datos</h3>
+                <p>Administración de sistemas informáticos, entrada de datos codificados y optimización
+                    de documentación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contacta Conmigo</h2>
+            <p style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--text-secondary);">
+                Cuéntame sobre tu proyecto y trabajemos juntos para convertir tus ideas en realidad.
+            </p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Nombre *</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Asunto *</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Tema del mensaje">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje *</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+
+                <!-- reCAPTCHA v2 -->
+                <div class="form-group" style="display:flex; justify-content:center;">
+                    <div class="g-recaptcha"
+                        data-sitekey="6Ld2-MEsAAAAAC5AbM2fu2DotNTtpSm7bgGqPWpy"></div>
+                </div>
+
+                <button type="submit" class="form-submit">Enviar Mensaje</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dariluz-mc" target="_blank" class="social-link"
+                    title="LinkedIn">
+                    <svg width="64px" height="64px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                        fill="none">
+                        <path fill="#0A66C2"
+                            d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z" />
+                    </svg>
+                </a>
+                <a href="https://instagram.com/dariluzmc" target="_blank" class="social-link"
+                    title="Instagram">
+                    <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="28" height="28" rx="6"
+                            fill="url(#ig_grad0)"></rect>
+                        <rect x="2" y="2" width="28" height="28" rx="6"
+                            fill="url(#ig_grad1)"></rect>
+                        <rect x="2" y="2" width="28" height="28" rx="6"
+                            fill="url(#ig_grad2)"></rect>
+                        <path
+                            d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
+                            fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z"
+                            fill="white"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z"
+                            fill="white"></path>
+                        <defs>
+                            <radialGradient id="ig_grad0" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)">
+                                <stop stop-color="#B13589"></stop>
+                                <stop offset="0.79309" stop-color="#C62F94"></stop>
+                                <stop offset="1" stop-color="#8A3AC8"></stop>
+                            </radialGradient>
+                            <radialGradient id="ig_grad1" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)">
+                                <stop stop-color="#E0E8B7"></stop>
+                                <stop offset="0.444662" stop-color="#FB8A2E"></stop>
+                                <stop offset="0.71474" stop-color="#E2425C"></stop>
+                                <stop offset="1" stop-color="#E2425C" stop-opacity="0"></stop>
+                            </radialGradient>
+                            <radialGradient id="ig_grad2" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)">
+                                <stop offset="0.156701" stop-color="#406ADC"></stop>
+                                <stop offset="0.467799" stop-color="#6A45BE"></stop>
+                                <stop offset="1" stop-color="#6A45BE" stop-opacity="0"></stop>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </a>
+                <a href="mailto:Dariluzmc06@gmail.com" class="social-link" title="Email">
+                    <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2 11.9556C2 8.47078 2 6.7284 2.67818 5.39739C3.27473 4.22661 4.22661 3.27473 5.39739 2.67818C6.7284 2 8.47078 2 11.9556 2H20.0444C23.5292 2 25.2716 2 26.6026 2.67818C27.7734 3.27473 28.7253 4.22661 29.3218 5.39739C30 6.7284 30 8.47078 30 11.9556V20.0444C30 23.5292 30 25.2716 29.3218 26.6026C28.7253 27.7734 27.7734 28.7253 26.6026 29.3218C25.2716 30 23.5292 30 20.0444 30H11.9556C8.47078 30 6.7284 30 5.39739 29.3218C4.22661 28.7253 3.27473 27.7734 2.67818 26.6026C2 25.2716 2 23.5292 2 20.0444V11.9556Z"
+                            fill="white"></path>
+                        <path
+                            d="M22.0515 8.52295L16.0644 13.1954L9.94043 8.52295V8.52421L9.94783 8.53053V15.0732L15.9954 19.8466L22.0515 15.2575V8.52295Z"
+                            fill="#EA4335"></path>
+                        <path
+                            d="M23.6231 7.38639L22.0508 8.52292V15.2575L26.9983 11.459V9.17074C26.9983 9.17074 26.3978 5.90258 23.6231 7.38639Z"
+                            fill="#FBBC05"></path>
+                        <path
+                            d="M22.0508 15.2575V23.9924H25.8428C25.8428 23.9924 26.9219 23.8813 26.9995 22.6513V11.459L22.0508 15.2575Z"
+                            fill="#34A853"></path>
+                        <path d="M9.94811 24.0001V15.0732L9.94043 15.0669L9.94811 24.0001Z"
+                            fill="#C5221F"></path>
+                        <path
+                            d="M9.94014 8.52404L8.37646 7.39382C5.60179 5.91001 5 9.17692 5 9.17692V11.4651L9.94014 15.0667V8.52404Z"
+                            fill="#C5221F"></path>
+                        <path
+                            d="M9.94043 8.52441V15.0671L9.94811 15.0734V8.53073L9.94043 8.52441Z"
+                            fill="#C5221F"></path>
+                        <path
+                            d="M5 11.4668V22.6591C5.07646 23.8904 6.15673 24.0003 6.15673 24.0003H9.94877L9.94014 15.0671L5 11.4668Z"
+                            fill="#4285F4"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/573005082058?text=Hola%20Dariluz!%20Me%20interesa%20conocer%20sobre%20tus%20servicios%20de%20diseño%20y%20multimedia"
+            target="_blank" class="floating-btn whatsapp-btn" title="Contactar por WhatsApp">
+            <svg width="86px" height="86px" viewBox="0 0 32 32" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
+                    fill="#BFC8D0"></path>
+                <path
+                    d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
+                    fill="url(#wa_grad)"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z"
+                    fill="white"></path>
+                <path
+                    d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z"
+                    fill="white"></path>
+                <defs>
+                    <linearGradient id="wa_grad" x1="26.5" y1="7" x2="4" y2="28"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#5BD066"></stop>
+                        <stop offset="1" stop-color="#27B43E"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Dariluz Morillo - Ingeniera Multimedia. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- =============== JAVASCRIPT =============== -->
+    <script>
+        // ─────────────────────────────────────────────────────────────
+        // CONFIGURACIÓN — solo cambia estos valores si es necesario
+        // ─────────────────────────────────────────────────────────────
+        
+        const RECEIVER_EMAIL = 'Dariluzmc06@gmail.com';        // Donde llegan los mensajes
+        const SENDER_EMAIL   = 'diegosanjuan9000@gmail.com';   // Email verificado en Brevo
+        const SENDER_NAME    = 'Portafolio Dariluz Morillo';
+
+        // ─────────────────────────────────────────────────────────────
+        // LAZY LOADING IMAGES
+        // ─────────────────────────────────────────────────────────────
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    if (src) {
+                        img.src = src;
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        };
+                    }
+                }
+            });
+        });
+        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+
+        // ─────────────────────────────────────────────────────────────
+        // ENVÍO DE FORMULARIO — Brevo API + reCAPTCHA
+        // ─────────────────────────────────────────────────────────────
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form      = event.target;
+            const submitBtn = form.querySelector('.form-submit');
+
+            const name    = form.name.value.trim();
+            const email   = form.email.value.trim();
+            const subject = form.subject.value.trim();
+            const message = form.message.value.trim();
+
+            // Validación de campos
+            if (!name || !email || !subject || !message) {
+                showMessage('Por favor completa todos los campos.', 'error');
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Por favor ingresa un email válido.', 'error');
+                return;
+            }
+
+            // Validar reCAPTCHA
+            const captchaToken = grecaptcha.getResponse();
+            if (!captchaToken) {
+                showMessage('Por favor completa el reCAPTCHA antes de enviar.', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            try {
+                // Email 1 — notificación a Dariluz
+                await sendBrevoEmail({
+                    to:      [{ email: RECEIVER_EMAIL, name: 'Dariluz Morillo' }],
+                    replyTo: { email, name },
+                    subject: `[Portafolio] Nuevo mensaje: ${subject}`,
+                    html: `
+                        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;
+                                    background:#f5f5f5;padding:20px;border-radius:10px;">
+                            <h2 style="color:#8b5fbf;border-bottom:2px solid #8b5fbf;padding-bottom:10px;">
+                                📬 Nuevo Mensaje desde tu Portafolio
+                            </h2>
+                            <div style="background:#fff;padding:20px;border-radius:8px;margin:20px 0;">
+                                <p><strong>Nombre:</strong> ${esc(name)}</p>
+                                <p><strong>Email:</strong>
+                                    <a href="mailto:${esc(email)}">${esc(email)}</a></p>
+                                <p><strong>Asunto:</strong> ${esc(subject)}</p>
+                            </div>
+                            <div style="background:#f9f9f9;padding:15px;border-left:4px solid #8b5fbf;
+                                        border-radius:4px;margin:20px 0;">
+                                <p><strong>Mensaje:</strong></p>
+                                <p style="color:#555;line-height:1.6;white-space:pre-wrap;">${esc(message)}</p>
+                            </div>
+                            <p style="color:#999;font-size:12px;text-align:center;">
+                                Responde directamente a este email para contactar al remitente.
+                            </p>
+                        </div>`
+                });
+
+                // Email 2 — confirmación al remitente
+                await sendBrevoEmail({
+                    to:      [{ email, name }],
+                    subject: '✅ Hemos recibido tu mensaje — Dariluz Morillo',
+                    html: `
+                        <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;
+                                    background:#f5f5f5;padding:20px;border-radius:10px;">
+                            <h2 style="color:#8b5fbf;text-align:center;">✅ Mensaje Recibido</h2>
+                            <div style="background:#fff;padding:30px;border-radius:8px;
+                                        margin:20px 0;text-align:center;">
+                                <p style="font-size:16px;color:#333;">
+                                    Hola <strong>${esc(name)}</strong>,</p>
+                                <p style="color:#666;line-height:1.8;">
+                                    Gracias por contactarme. He recibido tu mensaje y lo revisaré
+                                    con atención. Me pondré en contacto pronto.
+                                </p>
+                            </div>
+                            <div style="background:#f0f0ff;padding:20px;border-radius:8px;margin:20px 0;">
+                                <h3 style="color:#8b5fbf;margin-top:0;">Resumen de tu mensaje:</h3>
+                                <p><strong>Asunto:</strong> ${esc(subject)}</p>
+                                <div style="background:#fff;padding:15px;border-radius:4px;
+                                            border-left:4px solid #8b5fbf;">
+                                    <p style="white-space:pre-wrap;color:#555;margin:0;">
+                                        ${esc(message).substring(0, 300)}${message.length > 300 ? '…' : ''}
+                                    </p>
+                                </div>
+                            </div>
+                            <p style="color:#999;font-size:11px;text-align:center;margin-top:30px;">
+                                Este es un email automático, por favor no respondas a este mensaje.
+                            </p>
+                        </div>`
+                });
+
+                showMessage('✅ ¡Mensaje enviado! Me pondré en contacto pronto.', 'success');
+                form.reset();
+                grecaptcha.reset();
+
+            } catch (err) {
+                console.error('Error Brevo:', err);
+                showMessage('❌ Error al enviar. Intenta de nuevo o escríbeme por WhatsApp.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Mensaje';
+            }
+        }
+
+        // Llama a la API transaccional de Brevo (compatible con GitHub Pages, sin backend)
+        async function sendBrevoEmail({ to, subject, html, replyTo }) {
+            const payload = {
+                sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+                to,
+                subject,
+                htmlContent: html
+            };
+            if (replyTo) payload.replyTo = replyTo;
+
+            const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+                const errBody = await res.json().catch(() => ({}));
+                throw new Error(errBody.message || `HTTP ${res.status}`);
+            }
+            return res.json();
+        }
+
+        // Escapa HTML para evitar XSS en los emails
+        function esc(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        // Muestra mensaje de feedback al usuario
+        function showMessage(text, type) {
+            const el = document.getElementById('formMessage');
+            el.textContent = text;
+            el.className = `form-message ${type}`;
+            setTimeout(() => { el.className = 'form-message'; }, 6000);
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // SMOOTH SCROLL
+        // ─────────────────────────────────────────────────────────────
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // ─────────────────────────────────────────────────────────────
+        // SCROLL ANIMATIONS
+        // ─────────────────────────────────────────────────────────────
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.service-card, .skill-card').forEach(el => scrollObserver.observe(el));
+    </script>
+</body>
+
+</html>
