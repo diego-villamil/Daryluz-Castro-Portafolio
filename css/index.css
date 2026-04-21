@@ -510,7 +510,7 @@ h1 {
 
 .service-card {
     background: linear-gradient(135deg, var(--surface) 0%, rgba(214, 179, 255, 0.1) 100%);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     border-radius: 15px;
     border: 1px solid rgba(139, 95, 191, 0.3);
     transition: var(--transition);
@@ -524,11 +524,11 @@ h1 {
     box-shadow: 0 20px 40px rgba(139, 95, 191, 0.25);
 }
 
-.service-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.service-icon { font-size: 3rem; margin-bottom: var(--spacing-sm); }
 
 .service-card h3 {
     font-size: 1.3rem;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     color: var(--secondary);
 }
 
