@@ -22,9 +22,13 @@
         align-items: flex-start;
     }
 
-    .logo .title-site { font-size: 1.4rem; }
+    .logo img {
+        width: 80px;
+        height: 80px;
+    }
 
-    .logo img { width: 32px; height: 32px; }
+    .logo .title-site { display: none; }
+
 
     .nav-links {
         display: flex;
