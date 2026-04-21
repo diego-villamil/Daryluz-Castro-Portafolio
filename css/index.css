@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    position: relative;
 }
 
 :root {
@@ -51,7 +52,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-xs) var(--spacing-lg);
     background: rgba(26, 15, 46, 0.85);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(139, 95, 191, 0.2);
@@ -77,8 +78,13 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+}
+.logo .title-site {
     font-size: 1.8rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--secondary) 0%, var(--accent-light) 100%);
@@ -87,6 +93,7 @@ body {
     background-clip: text;
     text-decoration: none;
     cursor: pointer;
+    margin: auto;
 }
 
 .nav-links {
@@ -134,7 +141,7 @@ body {
     position: relative;
     overflow: hidden;
     padding: var(--spacing-lg);
-    padding-top: 80px;
+    padding-top: calc(var(--spacing-lg) + 150px);
 }
 
 .hero::before {
@@ -265,7 +272,6 @@ h1 {
 /* =============== ABOUT SECTION =============== */
 .about {
     padding: var(--spacing-xl) var(--spacing-lg);
-    max-width: 1200px;
     margin: 0 auto;
     background: rgba(42, 30, 62, 0.5);
     backdrop-filter: blur(10px);
@@ -288,9 +294,18 @@ h1 {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: var(--spacing-xl);
     align-items: center;
+}
+
+.about-content .about-image img {
+    width: 100%;
+    border-radius: var(--spacing-sm);
+}
+
+.about-text {
+    min-width: 0;
 }
 
 .about-text p {
@@ -299,29 +314,59 @@ h1 {
     line-height: 1.8;
     font-size: 1.05rem;
 }
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--spacing-md);
+/* =============== SKILLS CAROUSEL (SWIPER) =============== */
+.skills-carousel {
     margin-top: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    position: relative;
+}
+
+.skills-carousel .swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+.swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .skill-card {
+    width: 100%;
     background: linear-gradient(135deg, var(--surface) 0%, rgba(214, 179, 255, 0.1) 100%);
-    padding: var(--spacing-xs);
+    padding: var(--spacing-md);
     border-radius: 12px;
     text-align: center;
     border: 1px solid rgba(139, 95, 191, 0.3);
     transition: var(--transition);
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.05);
     border-color: var(--secondary);
     background: linear-gradient(135deg, var(--surface) 0%, rgba(214, 179, 255, 0.2) 100%);
-    box-shadow: 0 10px 30px rgba(139, 95, 191, 0.2);
+    box-shadow: 0 15px 40px rgba(139, 95, 191, 0.3);
+}
+
+.icon-skill {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto var(--spacing-sm);
+}
+
+.icon-skill img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .skill-card strong {
@@ -334,27 +379,22 @@ h1 {
 .skill-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    margin: 0;
 }
 
-.about-image {
-    position: relative;
-    height: 400px;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--primary) 100%);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(139, 95, 191, 0.3);
+/* Personalización del Swiper */
+.swiper-pagination {
+    margin-top: var(--spacing-lg) !important;
 }
 
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.about-image img.loaded {
+.swiper-pagination-bullet {
+    background: rgba(214, 179, 255, 0.5) !important;
     opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--secondary) !important;
+    box-shadow: 0 0 10px rgba(214, 179, 255, 0.5);
 }
 
 /* =============== EXPERIENCE SECTION =============== */
@@ -727,93 +767,64 @@ h1 {
     box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
 }
 
-/* =============== FOOTER =============== */
-.footer {
-    padding: var(--spacing-lg);
-    text-align: center;
-    color: var(--text-secondary);
-    border-top: 1px solid rgba(139, 95, 191, 0.2);
+/* =============== SKILLS CAROUSEL CONTINUO (MOVIMIENTO FLUIDO INFINITO) =============== */
+
+/* =============== SKILLS CAROUSEL CONTINUO =============== */
+.skills-carousel-continuous {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-/* =============== RESPONSIVE =============== */
+.skills-track {
+    display: flex;
+    gap: var(--spacing-md);
+    width: max-content;
+    padding: var(--spacing-md) 0;
+    animation: scrollContinuous 40s linear infinite;
+}
+
+.skills-carousel-continuous:hover .skills-track {
+    animation-play-state: paused;
+}
+
+/* Desktop: 5 visibles */
+.skills-carousel-continuous .skill-card {
+    flex: 0 0 220px;
+    min-width: 220px;
+    max-width: 220px;
+}
+
+/* Tablet: 3 visibles */
+@media (max-width: 1024px) {
+    .skills-carousel-continuous .skill-card {
+        flex: 0 0 calc((100vw - (var(--spacing-md) * 2)) / 3);
+        max-width: calc((100vw - (var(--spacing-md) * 2)) / 3);
+        min-width: calc((100vw - (var(--spacing-md) * 2)) / 3);
+    }
+}
+
+/* Mobile: 1.5 visibles */
 @media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .nav-links {
-        gap: var(--spacing-md);
-        flex-direction: column;
-    }
-
-    .floating-buttons {
-        bottom: var(--spacing-md);
-        right: var(--spacing-md);
+    .skills-track {
         gap: var(--spacing-sm);
     }
 
-    .floating-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-
-    .cta-buttons {
-        gap: var(--spacing-sm);
-    }
-
-    .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-    }
-
-    .timeline::before {
-        left: 0;
-    }
-
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        padding-left: var(--spacing-lg);
-        padding-right: 0;
-        text-align: left;
-    }
-
-    .timeline-dot {
-        left: 0;
+    .skills-carousel-continuous .skill-card {
+        flex: 0 0 calc((100vw - var(--spacing-sm)) / 1.5);
+        max-width: calc((100vw - var(--spacing-sm)) / 1.5);
+        min-width: calc((100vw - var(--spacing-sm)) / 1.5);
     }
 }
 
-@media (max-width: 600px) {
-    .hero {
-        padding: var(--spacing-md);
-        padding-top: 100px;
+@keyframes scrollContinuous {
+    0% {
+        transform: translateX(0);
     }
-
-    .about {
-        margin: var(--spacing-md);
-    }
-
-    .navbar {
-        padding: var(--spacing-sm) var(--spacing-md);
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero-content {
-        animation: none;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    100% {
+        transform: translateX(-50%);
     }
 }
