@@ -107,7 +107,7 @@ export default async function handler(req, res) {
         };
 
         await sendEmail({
-            to: [{ email: receiverEmail, name: 'Dariluz Morillo' }],
+            to: receiverEmails.map(e => ({ email: e, name: 'Dariluz Morillo' })),
             replyTo: { email, name },
             subject: `[Portafolio] Nuevo mensaje: ${subject}`,
             htmlContent: `
