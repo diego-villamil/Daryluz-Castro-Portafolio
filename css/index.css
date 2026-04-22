@@ -317,7 +317,7 @@ h1 {
     border: 1px solid rgba(139, 95, 191, 0.3);
     transition: var(--transition);
     cursor: pointer;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -356,6 +356,7 @@ h1 {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin: 0;
+    line-height: 1.2em
 }
 
 .swiper-pagination {
@@ -437,63 +438,105 @@ h1 {
     background: linear-gradient(135deg, rgba(214, 179, 255, 0.03) 0%, rgba(139, 95, 191, 0.03) 100%);
 }
 
-.portfolio-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+.portfolio-container { max-width: 1200px; margin: 0 auto; }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
 }
 
+/* ── Card ── */
 .portfolio-card {
-    position: relative;
-    border-radius: 15px;
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(214, 179, 255, 0.08) 100%);
+    border: 1px solid rgba(139, 95, 191, 0.3);
+    border-radius: 16px;
     overflow: hidden;
-    aspect-ratio: 1;
     cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
-.portfolio-card-image {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--primary) 100%);
+.portfolio-card:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 20px 40px rgba(139, 95, 191, 0.25);
+    transform: translateY(-4px);
+}
+
+/* ── Portada ── */
+.portfolio-cover {
     position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    background: #0d0a1a;
 }
 
-.portfolio-card img {
+.portfolio-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.portfolio-card img.loaded { opacity: 1; }
+.portfolio-card:hover .portfolio-cover img {
+    transform: scale(1.05);
+}
 
-.portfolio-card-overlay {
+/* ── Overlay con ícono de galería ── */
+.portfolio-cover-icon {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(139, 95, 191, 0.9) 0%, rgba(42, 30, 62, 0.9) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-md);
+    gap: 0.5rem;
+    background: rgba(10, 5, 20, 0.45);
     opacity: 0;
     transition: opacity 0.3s ease;
-    padding: var(--spacing-lg);
-    text-align: center;
 }
 
-.portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
-.portfolio-card-title { font-size: 1.5rem; font-weight: 700; }
-.portfolio-card-description { font-size: 0.95rem; color: rgba(255, 255, 255, 0.9); }
+.portfolio-card:hover .portfolio-cover-icon {
+    opacity: 1;
+}
 
+.portfolio-cover-icon svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 2px 8px rgba(214, 179, 255, 0.5));
+}
+
+.portfolio-cover-icon span {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ── Info siempre visible ── */
+.portfolio-card-info {
+    padding: var(--spacing-md);
+    border-top: 1px solid rgba(139, 95, 191, 0.2);
+}
+
+.portfolio-card-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.4rem;
+}
+
+.portfolio-card-info p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
 /* =============== SERVICES SECTION =============== */
 .services {
     padding: var(--spacing-xl) var(--spacing-lg);
@@ -715,9 +758,6 @@ h1 {
     animation: scrollContinuous 40s linear infinite;
 }
 
-.skills-carousel-continuous:hover .skills-track {
-    animation-play-state: paused;
-}
 
 .skills-carousel-continuous .skill-card {
     flex: 0 0 220px;
@@ -776,3 +816,156 @@ h1 {
     .nav-toggle.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
+
+    /* ── Lightbox ── */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10, 5, 20, 0.96);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.25s ease;
+}
+
+.lightbox.open { display: flex; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.lightbox-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: calc(100vh - 160px);
+    position: relative;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+    max-width: 90vw;
+    max-height: calc(100vh - 160px);
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(139, 95, 191, 0.3);
+}
+
+/* Botón cerrar */
+.lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10001;
+    line-height: 1;
+    transition: var(--transition);
+}
+.lightbox-close:hover { color: #fff; transform: scale(1.2); }
+
+/* Flechas */
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(42, 30, 62, 0.8);
+    border: 1px solid rgba(214, 179, 255, 0.3);
+    color: var(--secondary);
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    line-height: 1;
+    padding-bottom: 5px;
+}
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(214, 179, 255, 0.2);
+    border-color: var(--secondary);
+}
+
+/* Contador */
+.lightbox-counter {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Miniaturas */
+.lightbox-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    max-width: 90vw;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.lightbox-thumbs::-webkit-scrollbar { height: 4px; }
+.lightbox-thumbs::-webkit-scrollbar-track { background: transparent; }
+.lightbox-thumbs::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+.lightbox-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.55;
+    flex-shrink: 0;
+    transition: var(--transition);
+    background: #1a0f2e;
+}
+
+.lightbox-thumb.active,
+.lightbox-thumb:hover {
+    border-color: var(--secondary);
+    opacity: 1;
+}
+
+/* Miniatura de video */
+.lightbox-thumb-video {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.55;
+    flex-shrink: 0;
+    transition: var(--transition);
+    background: #1a0f2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 1.4rem;
+}
+.lightbox-thumb-video.active,
+.lightbox-thumb-video:hover {
+    border-color: var(--secondary);
+    opacity: 1;
+}

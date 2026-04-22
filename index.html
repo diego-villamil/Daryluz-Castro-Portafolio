@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/tablet.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -364,80 +365,63 @@
             <h2 class="section-title">Mi Portafolio</h2>
             <div class="portfolio-grid">
 
-                <!-- Tarjeta 1: Diseño Gráfico -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop"
-                            alt="Proyecto de Diseño Gráfico">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Diseño Gráfico</h3>
-                            <p class="portfolio-card-description">Logos, identidad visual y materiales de
-                                marketing</p>
+                <!-- ── CARD 1: Personajes 2D ── -->
+                <div class="portfolio-card" onclick="openLightbox('personajes', 0)">
+                    <div class="portfolio-cover">
+                        <img src="image/personaje-2d/ELIRA The Ice Guardian.png" alt="Personajes 2D portada">
+                        <div class="portfolio-cover-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                            </svg>
+                            <span>Ver galería</span>
                         </div>
+                    </div>
+                    <div class="portfolio-card-info">
+                        <h3>Personajes 2D</h3>
+                        <p>Diseño e ilustración de personajes vectoriales y digitales</p>
                     </div>
                 </div>
 
-                <!-- Tarjeta 2: Edición de Video -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1605379399243-a0be3d3ff2f7?w=400&h=400&fit=crop"
-                            alt="Edición de Video">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Edición de Video</h3>
-                            <p class="portfolio-card-description">Producción en DaVinci Resolve, Premiere y
-                                CapCut</p>
+                <!-- ── CARD 2: Modelado 3D ── -->
+                <div class="portfolio-card" onclick="openLightbox('3d', 0)">
+                    <div class="portfolio-cover">
+                        <img src="image/modelado-3d/PARCIAL.png" alt="Modelado 3D portada">
+                        <div class="portfolio-cover-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                            </svg>
+                            <span>Ver galería</span>
                         </div>
+                    </div>
+                    <div class="portfolio-card-info">
+                        <h3>Modelado 3D</h3>
+                        <p>Modelado, texturizado y renders en Blender</p>
                     </div>
                 </div>
 
-                <!-- Tarjeta 3: Animación -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
-                            alt="Animación">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Animación</h3>
-                            <p class="portfolio-card-description">Motion graphics con Reaper y Adobe
-                                Animate</p>
+                <!-- ── CARD 3: Diseño Photoshop ── -->
+                <div class="portfolio-card" onclick="openLightbox('photoshop', 0)">
+                    <div class="portfolio-cover">
+                        <img src="image/Diseño-photoshop/Poster Propuesta.jpg" alt="Diseño Photoshop portada">
+                        <div class="portfolio-cover-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="white" stroke-width="1.8"/>
+                            </svg>
+                            <span>Ver galería</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Tarjeta 4: Diseño 3D — reemplaza fotografía -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=400&fit=crop"
-                            alt="Diseño 3D con Blender">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Diseño 3D</h3>
-                            <p class="portfolio-card-description">Modelado, texturizado y renders en Blender
-                                para proyectos multimedia</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 5: Branding -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop"
-                            alt="Branding">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Branding</h3>
-                            <p class="portfolio-card-description">Identidad visual integral para empresas</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 6: Multimedia -->
-                <div class="portfolio-card">
-                    <div class="portfolio-card-image">
-                        <img data-src="https:/images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop"
-                            alt="Desarrollo Multimedia">
-                        <div class="portfolio-card-overlay">
-                            <h3 class="portfolio-card-title">Multimedia</h3>
-                            <p class="portfolio-card-description">Contenido interactivo y experiencias
-                                digitales</p>
-                        </div>
+                    <div class="portfolio-card-info">
+                        <h3>Diseño Photoshop</h3>
+                        <p>Edición avanzada, retoque y composición digital</p>
                     </div>
                 </div>
 
@@ -681,6 +665,19 @@
         <p>&copy; 2025 Daryluz Morillo Castro - Ingeniera Multimedia. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- ── Lightbox ── -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">‹</button>
+    <button class="lightbox-next" id="lightboxNext">›</button>
+    <div class="lightbox-content">
+        <img src="" alt="" id="lightboxImg" style="display:none;">
+        <video id="lightboxVideo" controls muted loop playsinline style="display:none;"></video>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+</div>
+
     <!-- =============== JAVASCRIPT =============== -->
     <script>
         // ─────────────────────────────────────────────────────────────
@@ -800,6 +797,115 @@
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('open');
             });
+        });
+
+
+        // ══════════════════════════════════════════════
+        // GALERÍAS POR CATEGORÍA
+        // ══════════════════════════════════════════════
+        const galleries = {
+            personajes: [
+                { type: 'img', src: 'image/personaje-2d/Actividad 1 - Diagnóstico_pages-to-jpg-0007.jpg' },
+                { type: 'img', src: 'image/personaje-2d/Actividad 1 - Diagnóstico_pages-to-jpg-0009.jpg' },
+                { type: 'img', src: 'image/personaje-2d/Cuando los colores hablan - Lily_page-0005.jpg' },
+                { type: 'img', src: 'image/personaje-2d/Cuando los colores hablan - Lily_page-0006.jpg' },
+                { type: 'img', src: 'image/personaje-2d/Cuando los colores hablan - Lily_page-0007.jpg' },
+                { type: 'img', src: 'image/personaje-2d/ELIRA The Ice Guardian.png' },
+                { type: 'img', src: 'image/personaje-2d/KAILO EL PERRITO ESPACIAL_page-0003.jpg' },
+                { type: 'img', src: 'image/personaje-2d/KAILO EL PERRITO ESPACIAL_page-0004.jpg' },
+                { type: 'img', src: 'image/personaje-2d/Time Traveler Lurien.png' }
+            ],
+            '3d': [
+                { type: 'img',   src: 'image/modelado-3d/PARCIAL.png' },
+                { type: 'video', src: 'image/modelado-3d/PAISAJE.mp4' }
+            ],
+            photoshop: [
+                { type: 'img', src: 'image/Diseño-photoshop/38f3f101-e2a4-4c3a-8122-b03c7f9efc26.jpg' },
+                { type: 'img', src: 'image/Diseño-photoshop/ASI MISMO_page-0001.jpg' },
+                { type: 'img', src: 'image/Diseño-photoshop/Poster Propuesta.jpg' },
+                { type: 'img', src: 'image/Diseño-photoshop/Tarea propuesta punto de fuga USB_1.jpg' },
+                { type: 'img', src: 'image/Diseño-photoshop/Tarea propuesta punto de fuga USB_2.jpg' }
+            ]
+        };
+
+        const lightbox        = document.getElementById('lightbox');
+        const lightboxImg     = document.getElementById('lightboxImg');
+        const lightboxVideo   = document.getElementById('lightboxVideo');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxThumbs  = document.getElementById('lightboxThumbs');
+
+        let lbItems = [];
+        let lbIndex = 0;
+
+        function openLightbox(gallery, index) {
+            lbItems = galleries[gallery];
+            lbIndex = index;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            buildThumbs();
+            renderLightbox();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+            lightboxVideo.pause();
+            lightboxVideo.src = '';
+            lightboxVideo.style.display = 'none';
+            lightboxImg.style.display   = 'none';
+        }
+
+        function renderLightbox() {
+            const item = lbItems[lbIndex];
+            lightboxCounter.textContent = `${lbIndex + 1} / ${lbItems.length}`;
+
+            document.querySelectorAll('#lightboxThumbs > *')
+                .forEach((t, i) => t.classList.toggle('active', i === lbIndex));
+
+            if (item.type === 'img') {
+                lightboxVideo.pause();
+                lightboxVideo.style.display = 'none';
+                lightboxImg.src = item.src;
+                lightboxImg.style.display = 'block';
+            } else {
+                lightboxImg.style.display = 'none';
+                lightboxVideo.src = item.src;
+                lightboxVideo.style.display = 'block';
+                lightboxVideo.play();
+            }
+        }
+
+        function buildThumbs() {
+            lightboxThumbs.innerHTML = '';
+            lbItems.forEach((item, i) => {
+                if (item.type === 'img') {
+                    const t = document.createElement('img');
+                    t.src = item.src;
+                    t.className = 'lightbox-thumb' + (i === lbIndex ? ' active' : '');
+                    t.addEventListener('click', () => { lbIndex = i; renderLightbox(); });
+                    lightboxThumbs.appendChild(t);
+                } else {
+                    const t = document.createElement('div');
+                    t.className = 'lightbox-thumb-video' + (i === lbIndex ? ' active' : '');
+                    t.innerHTML = '▶';
+                    t.addEventListener('click', () => { lbIndex = i; renderLightbox(); });
+                    lightboxThumbs.appendChild(t);
+                }
+            });
+        }
+
+        function lbPrev() { lbIndex = (lbIndex - 1 + lbItems.length) % lbItems.length; renderLightbox(); }
+        function lbNext() { lbIndex = (lbIndex + 1) % lbItems.length; renderLightbox(); }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', lbPrev);
+        document.getElementById('lightboxNext').addEventListener('click', lbNext);
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft')  lbPrev();
+            if (e.key === 'ArrowRight') lbNext();
+            if (e.key === 'Escape')     closeLightbox();
         });
     </script>
 </body>
