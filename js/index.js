@@ -138,6 +138,10 @@ const galleries = {
         { type: 'video', src: 'image/modelado-3d/PAISAJE.mp4' }
     ],
     photoshop: [
+        { type: 'img', src: 'image/Diseño-photoshop/Elisalud-Enfoque-integrativo.jpg' },
+        { type: 'img', src: 'image/Diseño-photoshop/Elisalud-Prevencion.jpg' },
+        { type: 'img', src: 'image/Diseño-photoshop/Elisalud-Medicina-ortomolecular.jpg' },
+        { type: 'img', src: 'image/Diseño-photoshop/Elisalud-Cancer-de-colon.jpg' },
         { type: 'img', src: 'image/Diseño-photoshop/38f3f101-e2a4-4c3a-8122-b03c7f9efc26.jpg' },
         { type: 'img', src: 'image/Diseño-photoshop/ASI MISMO_page-0001.jpg' },
         { type: 'img', src: 'image/Diseño-photoshop/Poster Propuesta.jpg' },
